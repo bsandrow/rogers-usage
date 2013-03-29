@@ -1,7 +1,6 @@
 
 import re
 import lxml.html
-import session
 
 current_usage_url = 'https://www.rogers.com/web/myrogers/internetUsageBeta?actionTab=CurrentUsageSummary'
 
