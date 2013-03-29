@@ -1,12 +1,17 @@
 #!/usr/bin/env python
 
+import argparse
 import getpass
 import os
 import socket
 import sys
 
-from session import RogersSession
-from usage   import current_usage_info
+from email.mime.text import MIMEText
+
+from xdg.BaseDirectory import load_first_config
+
+from rogers_usage.session import RogersSession
+from rogers_usage.usage   import current_usage_info
 
 # User Options:
 #   - Account Credentials for the My Rogers account (username/password).
@@ -66,7 +71,7 @@ def read_auth():
         return json.loads(fh.read()) or {}
 
 def main():
-    options = parser_args()
+    options = parse_args()
     auth    = read_auth()
     session = RogersSession(auth['username'], auth['password'])
     info    = current_usage_info(session)
