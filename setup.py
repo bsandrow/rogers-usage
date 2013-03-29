@@ -20,7 +20,7 @@ config = {
     'author_email'    : 'brandon@sandrowicz.org',
     'url'             : 'https://github.com/bsandrow/rogers-usage',
     'version'         : '0.1',
-    'packages'        : ['rogers_usage'],
+    'packages'        : ['rogers_usage', 'rogers_usage.apps'],
     'package_data'    : { '': ['LICENSE'] },
     'scripts'         : glob('bin/*'),
     'install_requires': requires,
