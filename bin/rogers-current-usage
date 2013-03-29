@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+
+import rogers_usage.apps.current_usage as app
+
+app.run()
