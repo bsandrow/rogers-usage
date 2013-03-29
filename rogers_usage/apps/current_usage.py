@@ -38,7 +38,9 @@ Total Usage    : %(total_usage)s GB
 Usage Allowance: %(allowance)s GB
 Usage Left     : %(left)s GB
 
-[ For period %(billing_period)s; Usage information may be up to 48 hours old. ]
+Note:
+- For period %(billing_period)s.
+- Usage information may be up to 48 hours old.
 
 """ % info)
 
