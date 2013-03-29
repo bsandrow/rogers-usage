@@ -9,7 +9,7 @@ except ImportError:
     from distutils.core import setup
 
 requires = []
-long_description = open('README.rst').read() + "\n\n" + open("Changelog").read()
+long_description = open('README.rst').read() + "\n\n" + open("ChangeLog").read()
 
 config = {
     'name'            : 'rogers-usage',
@@ -26,8 +26,7 @@ config = {
     'install_requires': requires,
     'license'         : open('LICENSE').read(),
     'test_suite'      : '',
-    'classifiers'     : (,
-    ),
+    'classifiers'     : (),
 }
 
 setup(**config)
