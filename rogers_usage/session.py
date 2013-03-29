@@ -13,6 +13,8 @@ class RogersSession(requests.Session):
     def __init__(self, username, password, **kwargs):
         requests.Session.__init__(self, **kwargs)
         self.headers.update({ 'User-Agent': 'rogers-usage/0.1' })
+        self.username = username
+        self.password = password
         self.login()
 
     def login(self):
