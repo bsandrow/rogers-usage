@@ -30,6 +30,6 @@ def current_usage_info(session):
         'allowance'     : convert(clean_text(tds[8].text_content())),
         'billing_period': re.sub(r'Details for ?', '', clean_text(html.cssselect('#currentBillingPeriod')[0].text_content())),
     }
-    info['left'] = info['allowance'] - info['download_usage']
+    info['left'] = info['allowance'] - info['total_usage']
 
     return info
