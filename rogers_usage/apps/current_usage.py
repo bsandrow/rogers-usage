@@ -49,7 +49,7 @@ def parse_args():
     parser.add_argument('-r', '--recipients',
                         help=""" Comma-separated list of email addresses to
                         send the report to.  """)
-    parser.add_argument('-f', '--from', default=from_address_default,
+    parser.add_argument('-f', '--from', dest='from_addr', default=from_address_default,
                         help=""" The email address that the report will be sent
                         from. (default: %s)""" % (from_address_default) )
     parser.add_argument('-s', '--smtp', default='localhost',
@@ -70,9 +70,9 @@ def main():
     auth    = read_auth()
     session = RogersSession(auth['username'], auth['password'])
     info    = current_usage_info(session)
-    msg     = draft_email(info, options.from, options.recipients)
+    msg     = draft_email(info, options.from_addr, options.recipients)
 
-    smtplib.SMTP(options.smtp).sendmail(options.from, options.recipients, msg.as_string())
+    smtplib.SMTP(options.smtp).sendmail(options.from_addr, options.recipients, msg.as_string())
 
 def run():
     try:
