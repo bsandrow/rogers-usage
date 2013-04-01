@@ -22,7 +22,7 @@ from rogers_usage.usage   import current_usage_info
 #   - The recipients of the email.
 #   - The SMTP host to sent the email through.
 
-from_address_default = "%s@%s" % ( getpass.getuser(), socket.gethostname() )
+address_default = "%s@%s" % ( getpass.getuser(), socket.gethostname() )
 
 def draft_email(info, from_addr, to_addrs):
     """ Create an email from BW usage info. """
@@ -56,12 +56,12 @@ def parse_args():
         period.
         """)
 
-    parser.add_argument('-r', '--recipients',
+    parser.add_argument('-r', '--recipients', default=address_default,
                         help=""" Comma-separated list of email addresses to
-                        send the report to.  """)
-    parser.add_argument('-f', '--from', dest='from_addr', default=from_address_default,
+                        send the report to. (default: %s)""" % (address_default))
+    parser.add_argument('-f', '--from', dest='from_addr', default=address_default,
                         help=""" The email address that the report will be sent
-                        from. (default: %s)""" % (from_address_default) )
+                        from. (default: %s)""" % (address_default) )
     parser.add_argument('-s', '--smtp', default='localhost',
                         help=""" The SMTP host to send the email through.
                         (default: localhost) """)
