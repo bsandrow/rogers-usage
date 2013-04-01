@@ -51,7 +51,7 @@ Note:
     return msg
 
 def parse_args():
-    parser = argparse.ArgumentParser("""
+    parser = argparse.ArgumentParser(description="""
         Send an email summarizing Rogers bandwidth usage for the current
         period.
         """)
