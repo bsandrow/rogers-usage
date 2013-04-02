@@ -8,7 +8,9 @@ I'll make some scrapers to pull other info.
 
 Example
 -------
+
 ::
+
     >> from rogers_usage.session import RogersSession
     >> from rogers_usage.usage   import current_usage_info
     >> session = RogersSession('user@example.com', 'password123')
