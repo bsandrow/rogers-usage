@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+
+import rogers_usage.apps.usage_history as app
+
+app.run()
+
