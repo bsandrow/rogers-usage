@@ -11,8 +11,7 @@ import sys
 
 from email.mime.text import MIMEText
 
-from xdg.BaseDirectory import load_first_config
-
+from rogers_usage.auth    import get_auth_info
 from rogers_usage.session import RogersSession
 from rogers_usage.usage   import current_usage_info
 
@@ -70,15 +69,10 @@ def parse_args():
 
     return options
 
-def read_auth():
-    config_dir = load_first_config('rogers-usage')
-    with open(os.path.join(config_dir, 'auth.json'), 'rb') as fh:
-        return json.loads(fh.read()) or {}
-
 def main():
     options = parse_args()
-    auth    = read_auth()
-    session = RogersSession(auth['username'], auth['password'])
+    auth    = get_auth_info()
+    session = RogersSession(auth.username, auth.password)
     info    = current_usage_info(session)
     msg     = draft_email(info, options.from_addr, options.recipients)
 
